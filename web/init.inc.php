@@ -7,12 +7,12 @@ $myMail = "angelvittorio@gmail.com";
 $myKey = "123654789";
 
 // bbdd password
-$con = mysql_connect("localhost","mdm","***");
+$con = mysqli_connect("localhost","mdm","***");
 if (!$con)
   {
-  die('Error: Could not connect: ' . mysql_error());
+  die('Error: Could not connect: ' . mysqli_error());
   }
 
-mysql_select_db("mdm", $con);
+mysqli_select_db( $con,"mdm");
 
 ?>

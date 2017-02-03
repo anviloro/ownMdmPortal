@@ -10,12 +10,12 @@ $select = substr($select, 0, strlen($select)-1);
 
 $sql = "SELECT gcm FROM devices WHERE imei in(" . $select . ")";
 
-$result = mysql_query($sql, $con) or die ("Error: query");
+$result = mysqli_query( $con,$sql) or die ("Error: query");
 
 $gcms = array();
 
 $found = 0;
-while($row = mysql_fetch_array($result))
+while($row = mysqli_fetch_array($result,MYSQLI_ASSOC))
 {                                                                       
   $found = 1;
   array_push($gcms, $row['gcm']);

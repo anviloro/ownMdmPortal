@@ -2,7 +2,7 @@
  
 <?php 
  
-  // comprobar si ya está registrado el imei
+  // comprobar si ya estï¿½ registrado el imei
 
   $key = $_POST["key"];
   $imei = $_POST["imei"];
@@ -21,10 +21,10 @@
   echo $sql;
   echo '<br>';
   
-  $result = mysql_query($sql, $con) or die ("Error: query");
+  $result = mysqli_query( $con,$sql) or die ("Error: query");
   
   $found = 0;
-  while($row = mysql_fetch_array($result))
+  while($row = mysqli_fetch_array($result,MYSQLI_ASSOC))
   {
     $found = 1;                             
   }
@@ -35,7 +35,7 @@
     echo $sql;
     echo '<br>';
 
-    if (!mysql_query($sql,$con))
+    if (!mysqli_query($con,$sql))
     {
       // error
       echo 'Error insert';
@@ -47,7 +47,7 @@
     echo $sql;
     echo '<br>';
 
-    if (!mysql_query($sql,$con))
+    if (!mysqli_query($con,$sql))
     {
       // error
       echo 'Error update';
@@ -57,7 +57,7 @@
     echo $sql;
     echo '<br>';
 
-    if (!mysql_query($sql,$con))
+    if (!mysqli_query($con,$sql))
     {
       // error
       echo 'Error insert';

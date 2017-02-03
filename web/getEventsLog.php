@@ -11,9 +11,9 @@ $sql = "SELECT imei, log, dateLog FROM devices_log where imei = '" . $imei . "' 
      
 //echo $sql;
 
-$result = mysql_query($sql, $con) or die ("Error: query");
+$result = mysqli_query($con,$sql) or die ("Error: query");
 
-if (!$result || mysql_num_rows($result) <= 0)  {
+if (!$result || mysqli_num_rows($result) <= 0)  {
   echo '{'.PHP_EOL;
   echo '"logs": "0",'.PHP_EOL;
   echo '}'.PHP_EOL;   
@@ -24,10 +24,10 @@ else {
   $indice = 0;
 
   echo '{'.PHP_EOL;
-  echo '"logs": "' . mysql_num_rows($result) . '",'.PHP_EOL;
+  echo '"logs": "' . mysqli_num_rows($result) . '",'.PHP_EOL;
   echo '"items": ['.PHP_EOL;
 
-  while($row = mysql_fetch_array($result))
+  while($row = mysqli_fetch_array($result,MYSQLI_ASSOC))
   {                                                                       
     $found = 1;
     $indice++;                             
@@ -41,7 +41,7 @@ else {
     echo '"log": "'. $log . '",'.PHP_EOL;
     echo '"dateLog": "'. $dateLog . '"'.PHP_EOL;
     
-    if ($indice == mysql_num_rows($result))
+    if ($indice == mysqli_num_rows($result))
       echo '}'.PHP_EOL;
     else
       echo '},'.PHP_EOL;

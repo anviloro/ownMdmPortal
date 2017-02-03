@@ -7,7 +7,7 @@ $name = trim($_POST["name"]);
 // update table
   $sql = "UPDATE devices SET `name`='" . $name . "' WHERE imei='" . $imei . "'";
   //echo $sql;
-  if (!mysql_query($sql,$con))
+  if (!mysqli_query($con,$sql))
   {
     // error
     echo 'Error update';

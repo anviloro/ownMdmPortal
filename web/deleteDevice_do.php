@@ -7,7 +7,7 @@ $imei = trim($_GET["imei"]);
 // delete table
   $sql = "DELETE FROM devices WHERE imei='" . $imei . "'";
   //echo $sql;
-  if (!mysql_query($sql,$con))
+  if (!mysqli_query($con,$sql))
   {
     // error
     die('Error delete');
@@ -15,7 +15,7 @@ $imei = trim($_GET["imei"]);
 
   $sql = "DELETE FROM devices_log WHERE imei='" . $imei . "'";
   //echo $sql;
-  if (!mysql_query($sql,$con))
+  if (!mysqli_query($con,$sql))
   {
     // error
     die('Error delete');

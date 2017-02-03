@@ -7,9 +7,9 @@ $sql = "SELECT imei, name, gcm, location, enabled, model, enabledDate, disabledD
      
 //echo $sql;
 
-$result = mysql_query($sql, $con) or die ("Error: problema con query");
+$result = mysqli_query($con,$sql) or die ("Error: problema con query");
 
-if (!$result || mysql_num_rows($result) <= 0)  {
+if (!$result || mysqli_num_rows($result) <= 0)  {
   echo '{'.PHP_EOL;
   echo '"devices": "0",'.PHP_EOL;
   echo '}'.PHP_EOL;   
@@ -20,10 +20,10 @@ else {
   $indice = 0;
 
   echo '{'.PHP_EOL;
-  echo '"devices": "' . mysql_num_rows($result) . '",'.PHP_EOL;
+  echo '"devices": "' . mysqli_num_rows($result) . '",'.PHP_EOL;
   echo '"items": ['.PHP_EOL;
 
-  while($row = mysql_fetch_array($result))
+  while($row = mysqli_fetch_array($result,MYSQLI_ASSOC))
   {                                                                       
     $found = 1;
     $indice++;                             
@@ -51,7 +51,7 @@ else {
     echo '"ping": "'. $ping . '",'.PHP_EOL;
     echo '"name": "'. $name . '"'.PHP_EOL;    
     
-    if ($indice == mysql_num_rows($result))
+    if ($indice == mysqli_num_rows($result))
       echo '}'.PHP_EOL;
     else
       echo '},'.PHP_EOL;
