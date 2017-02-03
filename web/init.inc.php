@@ -4,7 +4,7 @@
 $myMail = "angelvittorio@gmail.com";
 
 // this key must be set at App settings, change it for your own key
-$myKey = "0000";
+$myKey = "123654789";
 
 // bbdd password
 $con = mysql_connect("localhost","mdm","***");
