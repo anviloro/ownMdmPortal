@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `devices_log` (
 
 
 
-ALTER TABLE `devices` ADD `name` VARCHAR( 200 ) NULL AFTER `imei`
+ALTER TABLE `devices` ADD `name` VARCHAR( 200 ) NULL AFTER `imei`;
 
 
 CREATE USER 'mdm'@'%' IDENTIFIED BY '***';  
